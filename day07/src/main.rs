@@ -23,8 +23,8 @@ fn main() {
     .split('\n')
     .filter_map(Bag::from_str)
     .collect::<Vec<_>>();
-    let bags = if opt.nested_bag {
-        // remove the "shiny gold" bag to the counting
+  let bags = if opt.nested_bag {
+    // remove the "shiny gold" bag to the counting
     Bag::count_bags(&opt.color, &bags) - 1
   } else {
     Bag::find_parent_bags(&opt.color, &bags).len()
